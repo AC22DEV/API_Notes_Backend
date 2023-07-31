@@ -1,8 +1,12 @@
-module.exports = app.use((error, request, response, next) => {
-  console.error(error);
+module.exports = (error, request, response, next) => {
+  console.error(error)
   if (error.name === "CastError") {
-    response.status(400).send({ error: "id used is malformed" });
+    response.status(400).send({ error: "id used is malformed" })
   } else {
-    response.status(500).end();
+    response.status(500).end()
   }
-});
+}
+
+process.on("uncaughtException", () => {
+  mongoose.connection.disconnect()
+})
