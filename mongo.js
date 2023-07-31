@@ -1,6 +1,7 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
-const connectionString = process.env.MONGO_DB_URI;
+const connectionString =
+  "mongodb+srv://ac22:s2dnKfuaeZPKcMcVXj9K@clusternotes.5fbuixr.mongodb.net/appnotesdb?retryWrites=true&w=majority"
 
 //conexion mongodb
 mongoose
@@ -9,8 +10,8 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("Database connected");
+    console.log("Database connected")
   })
   .catch((err) => {
-    console.log(err);
-  });
+    console.log(err)
+  })
